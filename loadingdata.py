@@ -17,8 +17,6 @@ for category in categories:
         break
     break
 
-print(img_array.shape)
-
 # Image has differenty size, lets handle it.
 img_size = 80
 # training data
@@ -39,12 +37,12 @@ def create_training_data():
                 pass
 
 create_training_data()
-# print(len(training_data))           
+print(len(training_data))           
 
-# randomize data
+# # randomize data
 random.shuffle(training_data)
     
-# Sampling data
+# # Sampling data
 X = []
 y = []
 for features,label in training_data:
@@ -54,7 +52,7 @@ print(X[0].reshape(-1, img_size, img_size, 1))
 X = np.array(X).reshape(-1, img_size, img_size, 1)
 
 
-# save transformed data
+# # save transformed data
 pickle_out = open("data/X.pickle","wb")
 pickle.dump(X, pickle_out)
 pickle_out.close()
